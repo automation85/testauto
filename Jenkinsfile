@@ -12,7 +12,7 @@ pipeline {
       }
       stage('Build') {
          steps{
-            sh 'buildTask.sh'
+            sh "buildTask.sh"
          }
 
       }
