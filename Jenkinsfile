@@ -6,12 +6,20 @@ pipeline {
          // Get some code from a GitHub repository.
          //git 'https://github.com:automation85/testauto.git'
          //git 'git@github.com:automation85/testauto.git'
+         steps{
+            echo "preparation stage...."
+         }
       }
       stage('Build') {
-         gradle clean
+         steps{
+            gradle clean
+         }
+
       }
       stage('Results') {
-
+         steps{
+            echo "results stage..."
+         }
       }
    }
 }
