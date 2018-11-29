@@ -6,7 +6,7 @@ node {
       //git 'git@github.com:automation85/testauto.git'
    }
    stage('Build') {
-
+   gradle clean
    }
    stage('Results') {
 
