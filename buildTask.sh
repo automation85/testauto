@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo gradle clean
+clean test
