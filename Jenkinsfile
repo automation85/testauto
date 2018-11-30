@@ -15,11 +15,9 @@ pipeline {
       }
       stage('Build') {
          steps{
-            export GRADLE_USER_HOME="/opt/gradle/gradle-4.5.1/bin"
-            export PATH=${PATH}:${GRADLE_USER_HOME}
             echo "gradle home is ${env.GRADLE_USER_HOME}"
-            sh 'gradle clean'
-            //sh "${workspace}/buildTask.sh"
+            //sh 'gradle clean'
+            sh "${workspace}/buildTask.sh"
          }
 
       }
