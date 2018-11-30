@@ -15,8 +15,8 @@ pipeline {
       }
       stage('Build') {
          steps{
-            echo "gradle home is ${env.GRADLE_USER_HOME}"
-            sh 'gradle clean'
+            //echo "gradle home is ${env.GRADLE_USER_HOME}"
+            sh 'gradle clean test'
             //sh "${workspace}/buildTask.sh"
          }
 
