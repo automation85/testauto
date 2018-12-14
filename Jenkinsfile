@@ -1,6 +1,12 @@
 #!/usr/bin/env groovy
 pipeline {
-   agent any
+   //agent any
+   agent {
+      dockerfile{
+         filename 'Dockerfile'
+         label ''
+      }
+   }
    tools{
       gradle 'gradle-4.5.1'
    }
