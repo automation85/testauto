@@ -10,7 +10,7 @@ pipeline {
          //git 'https://github.com:automation85/testauto.git'
          //git 'git@github.com:automation85/testauto.git'
          steps{
-            echo "preparation stage...."
+            echo "preparation stage......."
          }
       }
       stage('Build') {
