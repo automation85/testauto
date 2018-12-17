@@ -13,7 +13,7 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 ARG FIREFOX_VERSION=55.0.3
 RUN apt-get update -qqy \
 && apt-get install -y \
-&& apt-get -qqy --no-install-recommends install firefox \
+&& apt-get install firefox \
 && rm -rf /var/lib/apt/lists/* \
 && wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2 \
 && apt-get -y purge firefox \
