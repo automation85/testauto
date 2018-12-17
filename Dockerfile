@@ -12,6 +12,8 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #=========
 ARG FIREFOX_VERSION=55.0.3
 RUN apt-get update -qqy \
+&& echo "deb http://ftp.us.debian.org/debian/ sid main" > /etc/apt/sources.list.d/firefox.list \
+#&& deb-src http://ftp.us.debian.org/debian/ sid main
 && apt-get install -y \
 && apt-get install firefox \
 && rm -rf /var/lib/apt/lists/* \
