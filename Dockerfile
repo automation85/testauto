@@ -6,4 +6,20 @@ Run apt-get update && apt-get install -y && apt-get -qqy install git debianutils
 
 RUN pip3 --no-cache-dir install httpie==0.9.9
 
+
+#=========
+# Firefox
+#=========
+ARG FIREFOX_VERSION=55.0.3
+RUN apt-get update -qqy \
+&& apt-get -qqy --no-install-recommends install firefox \
+&& rm -rf /var/lib/apt/lists/* \
+&& wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/$FIREFOX_VERSION/linux-x86_64/en-US/firefox-$FIREFOX_VERSION.tar.bz2 \
+&& apt-get -y purge firefox \
+&& rm -rf /opt/firefox \
+&& tar -C /opt -xjf /tmp/firefox.tar.bz2 \
+&& rm /tmp/firefox.tar.bz2 \
+&& mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
+&& ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
+
 WORKDIR /var/lib/jenkins/workspace
