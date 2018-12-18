@@ -28,10 +28,10 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #=================
 #temp
 #=================
-RUN apt-get remove -y firefox* \
-&& wget -O firefox_latest_linux64.tar.bz2 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-GB' \
-&& tar -xjvf /tmp/firefox_latest_linux64.tar.bz2 -C /opt/
-&& ln -sf /opt/firefox/firefox /usr/bin/firefox
+RUN apt-get remove -y firefox* && \
+wget -O firefox_latest_linux64.tar.bz2 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-GB' && \
+tar -xjvf /tmp/firefox_latest_linux64.tar.bz2 -C /opt/ && \
+ln -sf /opt/firefox/firefox /usr/bin/firefox
 
 
 
