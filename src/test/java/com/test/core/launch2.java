@@ -9,18 +9,18 @@ import org.openqa.selenium.WebDriver;
 
 //@RunWith(CucumberWithSerenity.class)
 @RunWith(SerenityRunner.class)
-public class launch{
+public class launch2{
     @Managed
     protected WebDriver driver;
     @Test
-    public void launchBrowser(){
+    public void launchBrowser2(){
     driver.get("https://www.google.co.uk/");
     System.out.println(AnsiEscapes.GREEN+"Title is : " +driver.getTitle());
 //    System.out.println(AnsiEscapes.GREEN+"First Pipeline Test");
 
     }
     @Test
-    public void goToBBC(){
+    public void goToBBC2(){
         driver.get("https://www.bbc.co.uk/");
         System.out.println(AnsiEscapes.GREEN+"Title is : " +driver.getTitle());
 

@@ -20,7 +20,7 @@ repositories {
 
 buildscript {
     dependencies{
-        classpath "net.serenity-bdd:serenity-gradle-plugin:2.0.2"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.0.2","org.apache.maven.plugins:maven-failsafe-plugin:2.22.1","com.github.temyers:cucumber-jvm-parallel-plugin:4.2.0"
     }
     repositories {
         maven {
@@ -42,6 +42,14 @@ dependencies{
   //  testCompile group: 'junit', name: 'junit', version: '4.12'
 //}
 
-test{
+task PR(type:Test){
+    List<String> runners=file('src/test/java/com/test/core').listFiles().collect{it.name}.findAll{it=~'launch'}.collect{it.take(it.lastIndexOf('.'))}
+    maxParallelForks= System.properties.'serenity.fork.count' as Integer ?:4
+    maxParallelForks= [maxParallelForks,runners.size()].min()
+    maxParallelForks.times {"$runners[it]"}
     testLogging.showStandardStreams =true
+
+}
+test{
+//    testLogging.showStandardStreams =true
 }
