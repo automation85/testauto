@@ -23,6 +23,7 @@ pipeline {
          steps{
             //echo "gradle home is ${env.GRADLE_USER_HOME}"
             sh 'gradle -v'
+            sh 'docker-compose --version'
             sh 'gradle clean test'
             //sh "${workspace}/buildTask.sh"
          }
