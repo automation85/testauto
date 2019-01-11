@@ -14,9 +14,9 @@ public class launch{
     protected WebDriver driver;
     @Test
     public void launchBrowser(){
-   /* driver.get("https://www.google.co.uk/");
+    driver.get("https://www.google.co.uk/");
     System.out.println(AnsiEscapes.GREEN+"Title is : " +driver.getTitle());
-*/
+
     System.out.println(AnsiEscapes.GREEN+"First Pipeline Test");
 
     }
