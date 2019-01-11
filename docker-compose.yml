@@ -1,6 +1,6 @@
 ---
 version: '2'
- services:
+services:
          selenium-hub:
                  image: selenium/hub
                  container_name: selenium-hub
