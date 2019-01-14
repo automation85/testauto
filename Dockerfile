@@ -38,8 +38,8 @@ RUN pwd && \
 mkdir -p /opt/seleniumgrid && \
 cd /opt/seleniumgrid && \
 wget http://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
- #pwd && \
- #ls /home/gradle/ && \
+pwd && \
+ls /opt/seleniumgrid && \
  #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
  #ls /opt/seleniumgrid/
 
