@@ -33,6 +33,12 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #tar -xjvf /tmp/firefox_latest_linux64.tar.bz2 -C /opt/ && \
 #ln -sf /opt/firefox/firefox /usr/bin/firefox
 
+#Setup Grid
+RUN curl -fsSL https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar && \
+ mkdir -p /opt/seleniumgrid && \
+ cp /tmp/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
+ ls
+
 
 
 WORKDIR /var/lib/jenkins/workspace
