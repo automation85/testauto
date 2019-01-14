@@ -38,6 +38,7 @@ RUN pwd
 RUN ls /tmp/
 RUN curl -sS https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar && \
  pwd && \
+ ls /home/gradle/ && \
  mkdir -p /opt/seleniumgrid && \
  cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
  ls /opt/seleniumgrid/
