@@ -50,11 +50,12 @@ chmod +x /usr/bin/chromedriver
 #Setup Grid
 RUN pwd && \
 mkdir -p /opt/seleniumgrid && \
-cd /opt/seleniumgrid && \
-wget http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar && \
+#cd /opt/seleniumgrid && \
+wget /opt/seleniumgrid/ http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar && \
 pwd && \
 ls /opt/seleniumgrid && \
-cd /home/gradle
+#cd /home/gradle
+
 #java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub && \
 #java -Dwebdriver.chrome.driver=/usr/bin/chromedriver.exe -jar /opt/seleniumgrid/selenium-server-standalone-3.4.0.jar -port 5555 -role node  -hub http://172.17.0.6:4444/grid/register/ -browser "browserName=chrome,maxInstances="
  #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
