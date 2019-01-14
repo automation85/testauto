@@ -25,6 +25,7 @@ pipeline {
             sh 'gradle -v'
             sh 'docker-compose --version'
             //sh 'docker-compose up -d'
+            sh 'docker version'
             sh 'gradle clean test'
             //sh "${workspace}/buildTask.sh"
          }
