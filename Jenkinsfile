@@ -22,7 +22,7 @@ pipeline {
       stage('selenium grid setup') {
          steps{
             echo "run selenium grid......."
-            sh 'java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub'
+            sh 'java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub &'
          }
       }
       stage('Build') {
