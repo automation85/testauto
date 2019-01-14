@@ -34,14 +34,14 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #ln -sf /opt/firefox/firefox /usr/bin/firefox
 
 #Setup Grid
-RUN pwd
-RUN ls /tmp/
-RUN curl -sS https://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar && \
- pwd && \
- ls /home/gradle/ && \
- mkdir -p /opt/seleniumgrid && \
- cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
- ls /opt/seleniumgrid/
+RUN pwd && \
+mkdir -p /opt/seleniumgrid && \
+cd /opt/seleniumgrid && \
+wget http://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar
+ #pwd && \
+ #ls /home/gradle/ && \
+ #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
+ #ls /opt/seleniumgrid/
 
 
 WORKDIR /var/lib/jenkins/workspace
