@@ -50,8 +50,8 @@ chmod +x /usr/bin/chromedriver
 #Setup Grid
 RUN pwd && \
 mkdir -p /opt/seleniumgrid && \
-#cd /opt/seleniumgrid && \
-wget /opt/seleniumgrid/ http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar && \
+cd /opt/seleniumgrid && \
+wget http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar && \
 pwd && \
 ls /opt/seleniumgrid && \
 cd /home/gradle
