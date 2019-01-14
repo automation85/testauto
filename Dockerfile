@@ -43,6 +43,6 @@ ls /opt/seleniumgrid && \
 #java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
  #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
  #ls /opt/seleniumgrid/
-CMD ["java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub"]
+CMD java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
 
 WORKDIR /var/lib/jenkins/workspace
