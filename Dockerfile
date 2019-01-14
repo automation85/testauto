@@ -40,6 +40,7 @@ cd /opt/seleniumgrid && \
 wget http://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar && \
 pwd && \
 ls /opt/seleniumgrid && \
+java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
  #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
  #ls /opt/seleniumgrid/
 
