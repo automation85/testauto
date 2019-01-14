@@ -32,7 +32,19 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #wget -O firefox_latest_linux64.tar.bz2 'https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-GB' && \
 #tar -xjvf /tmp/firefox_latest_linux64.tar.bz2 -C /opt/ && \
 #ln -sf /opt/firefox/firefox /usr/bin/firefox
+#==============
+RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add && \
+echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+apt-get -y update && \
+apt-get -y install google-chrome-stable
 
+RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
+unzip chromedriver_linux64.zip && \
+mv chromedriver /usr/bin/chromedriver && \
+chown root:root /usr/bin/chromedriver && \
+chmod +x /usr/bin/chromedriver
+
+#==================
 #Setup Grid
 RUN pwd && \
 mkdir -p /opt/seleniumgrid && \
@@ -40,9 +52,10 @@ cd /opt/seleniumgrid && \
 wget http://selenium-release.storage.googleapis.com/3.13/selenium-server-standalone-3.13.0.jar && \
 pwd && \
 ls /opt/seleniumgrid && \
-#java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
+java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
+java -Dwebdriver.chrome.driver=/usr/bin/chromedriver.exe -jar /opt/seleniumgrid/selenium-server-standalone-3.4.0.jar -port 5555 -role node  -hub http://172.17.0.6:4444/grid/register/ -browser "browserName=chrome,maxInstances="
  #cp /home/gradle/selenium-server-standalone-3.13.0.jar -d /opt/seleniumgrid && \
  #ls /opt/seleniumgrid/
-CMD java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub
+
 
 WORKDIR /var/lib/jenkins/workspace
