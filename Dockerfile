@@ -2,7 +2,7 @@ FROM gradle:4.6-jdk8
 
 USER root
 
-Run apt-get update && apt-get install -y && apt-get -qqy install git debianutils jq python3-pip xvfb zip unzip curl docker-compose
+Run apt-get update && apt-get install -y && apt-get -qqy install git debianutils jq python3-pip xvfb zip unzip curl xmlstarlet docker-compose
 
 RUN pip3 --no-cache-dir install httpie==0.9.9
 
@@ -33,10 +33,11 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #tar -xjvf /tmp/firefox_latest_linux64.tar.bz2 -C /opt/ && \
 #ln -sf /opt/firefox/firefox /usr/bin/firefox
 #==============
-RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add && \
+RUN curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
 echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
-apt-get -y update && \
-apt-get -y install google-chrome-stable
+apt-get update && \
+apt-get install -y google-chrome-stable && \
+rm -rf /var/lib/apt/lists/*
 
 RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
 unzip chromedriver_linux64.zip && \
