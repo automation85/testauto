@@ -24,6 +24,7 @@ pipeline {
             //echo "gradle home is ${env.GRADLE_USER_HOME}"
             sh 'gradle -v'
             sh 'docker-compose --version'
+            sh 'java -jar /opt/seleniumgrid/selenium-server-standalone-3.13.0.jar -role hub'
             //sh 'docker-compose up -d'
             sh 'gradle clean test'
             //sh "${workspace}/buildTask.sh"
