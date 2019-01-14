@@ -34,11 +34,11 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #ln -sf /opt/firefox/firefox /usr/bin/firefox
 #==============
 #Chrome setup
-RUN curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
-apt-get update && \
-apt-get install -y google-chrome-stable && \
-rm -rf /var/lib/apt/lists/*
+#RUN curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+#echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+#apt-get update && \
+#apt-get install -y google-chrome-stable && \
+#rm -rf /var/lib/apt/lists/*
 
 RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
 unzip chromedriver_linux64.zip && \
