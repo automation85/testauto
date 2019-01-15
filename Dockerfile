@@ -47,7 +47,7 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #ln -fs chromedriver /usr/bin/chromedriver
 
 RUN mkdir -p /opt/webdrivers && \
-curl -sS -o /opt/webdrivers/ http://chromedriver.storage.googleapis.com/webdrivers/chromedriver_linux64.zip && \
+curl -sS -o /opt/webdrivers/ http://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
 unzip -qq /opt/webdrivers/chromedriver_linux64.zip -d /opt/webdrivers && \
 chmod +x /opt/webdrivers/chromedriver && \
 ln -fs /opt/webdrivers/chromedriver /usr/local/bin/chromedriver
