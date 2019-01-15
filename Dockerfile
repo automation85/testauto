@@ -40,12 +40,18 @@ RUN pip3 --no-cache-dir install httpie==0.9.9
 #apt-get install -y google-chrome-stable && \
 #rm -rf /var/lib/apt/lists/*
 
-RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
-unzip chromedriver_linux64.zip && \
-mv chromedriver /usr/bin/chromedriver && \
-#chown root:root /usr/bin/chromedriver && \
-chmod +x /usr/bin/chromedriver && \
-ln -fs chromedriver /usr/bin/chromedriver
+#RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
+#unzip chromedriver_linux64.zip && \
+#mv chromedriver /usr/bin/chromedriver && \
+#chmod +x /usr/bin/chromedriver && \
+#ln -fs chromedriver /usr/bin/chromedriver
+
+RUN mkdir -p /opt/webdrivers && \
+curl -sS -o /tmp/chromedriver_linux64.zip http://chromedriver.storage.googleapis.com/webdrivers/chromedriver_linux64.zip && \
+unzip -qq /tmp/chromedriver_linux64.zip -d /opt/webdrivers && \
+rm /tmp/chromedriver_linux64.zip && \
+chmod +x /opt/webdrivers/chromedriver && \
+ln -fs /opt/webdrivers/chromedriver /usr/local/bin/chromedriver
 
 #==================
 #Setup Grid
