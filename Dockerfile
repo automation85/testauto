@@ -50,7 +50,7 @@ RUN pwd
 
 RUN mkdir -p /opt/webdrivers && \
 cd /opt/webdrivers && \
-curl -sS -o /opt/webdrivers http://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
+curl -sS -o http://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip && \
 unzip -qq /opt/webdrivers/chromedriver_linux64.zip -d /opt/webdrivers && \
 chmod +x /opt/webdrivers/chromedriver && \
 ln -fs /opt/webdrivers/chromedriver /usr/bin/chromedriver
