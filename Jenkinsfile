@@ -27,7 +27,7 @@ pipeline {
             //sh 'java -Dwebdriver.chrome.driver=/usr/bin/chromedriver.exe -jar /opt/seleniumgrid/selenium-server-standalone-3.4.0.jar -port 5555 -role node -hub http://172.17.0.6:4444/grid/register/ -browser "browserName=chrome,maxInstances=3" &'
             //sh 'ls /usr/bin/'
             sh 'ls /opt/webdrivers/'
-            sh 'java -Dwebdriver.chrome.driver=/opt/webdrivers/chromedriver.exe -jar /opt/seleniumgrid/selenium-server-standalone-3.4.0.jar -port 5555 -role node -hub http://172.17.0.6:4444/grid/register/ -browser "browserName=chrome,maxInstances=3" &'
+            sh 'java -Dwebdriver.chrome.driver=/usr/bin/webdrivers/chromedriver.exe -jar /opt/seleniumgrid/selenium-server-standalone-3.4.0.jar -port 5555 -role node -hub http://172.17.0.6:4444/grid/register/ -browser "browserName=chrome,maxInstances=3" &'
             sh 'sleep 30'
          }
       }
